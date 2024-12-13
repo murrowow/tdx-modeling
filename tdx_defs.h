@@ -32,6 +32,12 @@ typedef enum {
     LOCAL_DATA_ARRAY = 1
 } array_t; 
 
+typedef enum {
+    DATA = 0,
+    KOT = 1, 
+    PAMT = 2
+} field_t; 
+
 typedef struct register_info {
     uint64_t rdi; //first argument
     uint64_t rsi; //second
@@ -58,8 +64,8 @@ static inline void dump_registers(reg_info_t *registers, error_t e)
 }
 
 typedef struct global_data {
-    pamt_t PAMT; 
-    kot_t KOT; 
+    pamt_t pamt; 
+    kot_t kot; 
     int data; 
 } global_data_t; 
 
