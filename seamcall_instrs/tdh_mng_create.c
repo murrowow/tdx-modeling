@@ -1,6 +1,6 @@
 #include "stdio.h"
-#include "tdx_defs.h"
-#include "hardware.h"
+#include "../tdx_defs.h"
+#include "../hardware.h"
 #include "stdlib.h"
 
 error_t tdh_mng_create(reg_info_t *registers) {
