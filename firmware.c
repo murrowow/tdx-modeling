@@ -9,7 +9,7 @@ error_t instruction_wrapper(instruction_t instr, reg_info_t * registers) {
         case TDH_MNG_CREATE: {
             printf("TDH_MNG_CREATE\n");
             e = tdh_mng_create(registers); 
-            dump_registers(registers); 
+            dump_registers(registers, e); 
             break;
         }
         case TDH_BLANK: {

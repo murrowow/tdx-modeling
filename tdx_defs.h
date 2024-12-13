@@ -4,6 +4,9 @@
 #include "stdio.h"
 #include "stdint.h"
 
+#define LOW 0
+#define UP 10
+
 typedef enum {
     SUCCESS = 0,
     FAILURE = -1
@@ -41,17 +44,23 @@ typedef instruction_type_t instruction_t;
 typedef pamt_type_t pamt_t;
 typedef kot_type_t kot_t; 
 
-static inline void dump_registers(reg_info_t *registers) 
+static inline void dump_registers(reg_info_t *registers, error_t e) 
 {
     printf("rdi: %llu\n", registers->rdi);
     printf("rdi: %llu\n", registers->rsi);
     printf("rdi: %llu\n", registers->rcx);
     printf("rdi: %llu\n", registers->rax);
+    if (e == SUCCESS) {
+        printf("SUCCESS\n");
+    } else {
+        printf("ERROR\n");
+    }
 }
 
 typedef struct global_data {
     pamt_t PAMT; 
     kot_t KOT; 
+    int data; 
 } global_data_t; 
 
 

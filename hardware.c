@@ -18,15 +18,16 @@ void * read(array_t array, int addr) {
             return (void *)data; 
         }
         case LOCAL_DATA_ARRAY: {
+            return NULL;
             break; 
         }
     }
 }
 
-void write (array_t array, int addr, global_data_t *data) {
+void write (array_t array, int addr, void * data) {
     switch (array) {
         case GLOBAL_DATA_ARRAY: {
-            global_data[addr] = *data;
+            global_data[addr].data = *(int *)data;
         }
         case LOCAL_DATA_ARRAY: {
             break;

@@ -4,6 +4,9 @@
 
 int main() {
     init_hardware(); 
-    create_TD(0llu); 
+    error_t e = create_TD(0llu); 
+    if (e == FAILURE) {
+        printf("instruction failed");
+    }
     return 0; 
 }
