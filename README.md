@@ -2,10 +2,7 @@ Hardware:
 sysinfo_table (!)
 per-lp VMCS region (figure 6)
 Lp-local data region (!)
-page table  
-pml4 
-stack region 
-code region (?)
+
 
 read (array, index)
 write (array, index, value)

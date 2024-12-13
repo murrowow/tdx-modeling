@@ -14,16 +14,32 @@ typedef enum {
     TDH_BLANK = 2
 } instruction_type_t; 
 
+typedef enum  {
+    PT_NDA = 0, 
+    PT_ASSIGNED = 1, 
+} pamt_type_t; 
+
+typedef enum {
+    HKID_FREE = 0,
+    HKID_ASSIGNED = 1
+} kot_type_t; 
+
+typedef enum {
+    GLOBAL_DATA_ARRAY = 0,
+    LOCAL_DATA_ARRAY = 1
+} array_t; 
 
 typedef struct register_info {
-    uint64_t rdi;
-    uint64_t rsi; 
-    uint64_t rcx;
-    uint64_t rax;
+    uint64_t rdi; //first argument
+    uint64_t rsi; //second
+    uint64_t rcx; //third
+    uint64_t rax; //return register
 } reg_info_t; 
 
 typedef error_type_t error_t; 
 typedef instruction_type_t instruction_t; 
+typedef pamt_type_t pamt_t;
+typedef kot_type_t kot_t; 
 
 static inline void dump_registers(reg_info_t *registers) 
 {
@@ -32,4 +48,11 @@ static inline void dump_registers(reg_info_t *registers)
     printf("rdi: %llu\n", registers->rcx);
     printf("rdi: %llu\n", registers->rax);
 }
+
+typedef struct global_data {
+    pamt_t PAMT; 
+    kot_t KOT; 
+} global_data_t; 
+
+
 #endif //TDX_DEFS_H
