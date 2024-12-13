@@ -22,3 +22,14 @@ void * read(array_t array, int addr) {
         }
     }
 }
+
+void write (array_t array, int addr, global_data_t *data) {
+    switch (array) {
+        case GLOBAL_DATA_ARRAY: {
+            global_data[addr] = *data;
+        }
+        case LOCAL_DATA_ARRAY: {
+            break;
+        }
+    }
+}
