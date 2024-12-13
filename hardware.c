@@ -11,11 +11,11 @@ error_t init_hardware() {
     return e; 
 }
 
-void read(array_t array, int addr, void *data) {
+void * read(array_t array, int addr) {
     switch (array) {
         case GLOBAL_DATA_ARRAY: {
-            data = &global_data[addr];
-            break; 
+            global_data_t * data = &global_data[addr];
+            return (void *)data; 
         }
         case LOCAL_DATA_ARRAY: {
             break; 

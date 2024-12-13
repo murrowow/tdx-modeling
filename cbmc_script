@@ -1,0 +1,2 @@
+FILES="seamcall_instrs/tdh_mng_create.c main.c firmware.c flows.c hardware.c"
+cbmc main.c $FILES -I $PWD
